@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Web;
 using Practice.DataAccess;
 using Prueba_Naitus.Models;
 using PruebaNaitus.Models;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace PruebaNaitus.Controllers
 {
@@ -44,7 +45,7 @@ namespace PruebaNaitus.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return View("Index");
             }
             if (image != null)
             {
@@ -61,6 +62,23 @@ namespace PruebaNaitus.Controllers
                 {
                     image.CopyTo(stream);
                 }
+
+                ImageFile imgF = new ImageFile();
+                imgF.Rut = user.Rut;
+                imgF.FileName = ImageName;
+                _context.Imagenes.Add(imgF);
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                  
+                   throw;
+                   
+                }
+
+
                 return View();
             }
             else
@@ -94,7 +112,7 @@ namespace PruebaNaitus.Controllers
 
             if (user == null)
             {
-                return NotFound();
+              return View("Index"); ;
             }
 
             return View(user);
@@ -123,6 +141,8 @@ namespace PruebaNaitus.Controllers
             uc.DeleteUser(rut);
             return View();
         }
+
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

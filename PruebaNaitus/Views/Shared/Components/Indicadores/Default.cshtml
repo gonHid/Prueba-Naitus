@@ -1,0 +1,30 @@
+﻿@model List<Prueba_Naitus.Models.Indicador>
+@{
+}
+<div>
+
+    <table class="table">
+        <thead>
+          
+                <tr>
+                @foreach (Prueba_Naitus.Models.Indicador item in Model)
+                {
+                    <th>
+                      @Html.DisplayFor(modelItem => item.Codigo)
+                    </th>
+                    }
+                </tr>
+            
+        </thead>
+        <tbody>
+           
+                <tr>@foreach (var item in Model) {
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.Serie[0].Valor)
+                    </td>
+                    }
+                </tr>
+            
+        </tbody>
+    </table>
+</div>
