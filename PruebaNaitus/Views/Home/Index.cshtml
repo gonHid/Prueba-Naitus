@@ -12,7 +12,14 @@
         <input type="text" placeholder="Rut" name="Rut" value="@ViewData["Search"]" id="Rut" />
         <input type="submit" value="Eliminar" class="btn btn-default" />
     </form>
-   
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
   
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </div>

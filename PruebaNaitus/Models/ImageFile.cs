@@ -5,9 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Prueba_Naitus.Models
 {
-    [Keyless]
     public class ImageFile
     {
+        [Key]
+        public string id { get; set; }
+
         [ForeignKey("User"),Required]
         public string Rut { get; set; }
 

@@ -15,12 +15,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\VisualStudio Editor\projectos\Prueba-Naitus\PruebaNaitus
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/VisualStudio Editor/projectos/Prueba-Naitus/PruebaNaitus/Views/Home/Creado.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhZG8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/VisualStudio Editor/projectos/Prueba-Naitus/PruebaNaitus/Views/Home/CrearUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio Editor/projectos/Prueba-Naitus/PruebaNaitus/Views/Home/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VisualStudio Editor/projectos/Prueba-Naitus/PruebaNaitus/Views/Home/Deleted.cshtml]

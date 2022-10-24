@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Practice.DataAccess;
 using Prueba_Naitus.Models;
+using PruebaNaitus.Models;
 
 namespace PruebaNaitus.Controllers
 {
@@ -54,6 +55,9 @@ namespace PruebaNaitus.Controllers
                
             }
 
+            string pass = Encriptador.ObtenerSha256(user.Password);
+            user.Password = pass;
+
             _context.Entry(user).State = EntityState.Modified;
 
             try
@@ -80,6 +84,9 @@ namespace PruebaNaitus.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            string pass = Encriptador.ObtenerSha256(user.Password);
+            user.Password = pass;
+
             _context.Usuarios.Add(user);
             try
             {

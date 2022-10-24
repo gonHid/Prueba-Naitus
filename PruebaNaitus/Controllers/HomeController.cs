@@ -4,6 +4,7 @@ using Prueba_Naitus.Models;
 using PruebaNaitus.Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 
 namespace PruebaNaitus.Controllers
@@ -45,6 +46,7 @@ namespace PruebaNaitus.Controllers
 
             if (user == null)
             {
+                ViewBag.Message = string.Format("Rut de usuario no encontrado ");
                 return View("Index");
             }
             if (image != null)
@@ -64,6 +66,7 @@ namespace PruebaNaitus.Controllers
                 }
 
                 ImageFile imgF = new ImageFile();
+                imgF.id = Guid.NewGuid().ToString();
                 imgF.Rut = user.Rut;
                 imgF.FileName = ImageName;
                 _context.Imagenes.Add(imgF);
@@ -112,7 +115,8 @@ namespace PruebaNaitus.Controllers
 
             if (user == null)
             {
-              return View("Index"); ;
+                ViewBag.Message = string.Format("Rut de usuario no encontrado ");
+                return View("Index"); ;
             }
 
             return View(user);
@@ -130,7 +134,8 @@ namespace PruebaNaitus.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                ViewBag.Message = string.Format("Rut de usuario no encontrado ");
+                return View("index");
             }
 
             return View(user); return View();
